@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intervui - Coming Soon!</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #1a1a1a;
+      color: white;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+    .ball {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #4ade80;
+    }
+    h1 {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      text-align: center;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Intervui Coming Soon!</h1>
+  <div class="ball" id="ball"></div>
+
+  <script>
+    const ball = document.getElementById('ball');
+    let x = 0, y = 0;
+    let dx = 3, dy = 2;
+
+    function animate() {
+      const w = window.innerWidth - 30;
+      const h = window.innerHeight - 30;
+
+      x += dx;
+      y += dy;
+
+      if (x <= 0 || x >= w) dx = -dx;
+      if (y <= 0 || y >= h) dy = -dy;
+
+      ball.style.transform = `translate(${x}px, ${y}px)`;
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
